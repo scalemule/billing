@@ -1,0 +1,66 @@
+{
+  "name": "@scalemule/billing",
+  "version": "0.0.1",
+  "description": "ScaleMule Billing UI components - secure payment forms wrapping Stripe Elements",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "peerDependencies": {
+    "@stripe/stripe-js": "^5.0.0",
+    "@stripe/react-stripe-js": "^3.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@stripe/stripe-js": "^5.0.0",
+    "@stripe/react-stripe-js": "^3.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "scalemule",
+    "billing",
+    "payments",
+    "stripe",
+    "react"
+  ],
+  "author": "ScaleMule Inc. <support@scalemule.com>",
+  "license": "MIT",
+  "homepage": "https://scalemule.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scalemule/billing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/scalemule/billing/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
