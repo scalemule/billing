@@ -15,21 +15,19 @@
  *
  * @example
  * ```tsx
- * import { BillingProvider, PaymentElement } from '@scalemule/billing'
+ * import { BillingProvider, SetupElement } from '@scalemule/billing'
  * import { useBilling } from '@scalemule/nextjs'
  *
- * function Checkout() {
- *   const { createPayment } = useBilling()
+ * function SavePaymentMethod() {
+ *   const { createSetupSession } = useBilling()
  *   const [clientSecret, setClientSecret] = useState<string | null>(null)
  *
  *   useEffect(() => {
- *     createPayment({
- *       amount_cents: 1000,
- *       connected_account_id: creatorId,
- *       platform_fee_percent: 15,
- *       payment_type: 'tip',
- *     }).then((payment) => {
- *       if (payment?.client_secret) setClientSecret(payment.client_secret)
+ *     createSetupSession({
+ *       return_url: window.location.href,
+ *       cancel_url: window.location.href,
+ *     }).then((secret) => {
+ *       if (secret) setClientSecret(secret)
  *     })
  *   }, [])
  *
@@ -40,9 +38,9 @@
  *       publishableKey={process.env.NEXT_PUBLIC_STRIPE_PK!}
  *       clientSecret={clientSecret}
  *     >
- *       <PaymentElement
- *         onSuccess={() => router.push('/success')}
- *         submitLabel="Send $10 Tip"
+ *       <SetupElement
+ *         onSuccess={() => router.refresh()}
+ *         submitLabel="Save payment method"
  *       />
  *     </BillingProvider>
  *   )
